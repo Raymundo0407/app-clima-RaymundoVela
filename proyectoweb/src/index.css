@@ -1,0 +1,250 @@
+/* ========================== */
+/*      STYLES.CSS + STYLES2.CSS UNIDOS */
+/* ========================== */
+
+/* Reset y tokens básicos */
+:root{
+  --bg: #0f172a;
+  --bg-elev: #111827;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #38bdf8;
+  --card: #2c4849;
+  --border: #1f2937;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --radius: 14px;
+  --space: 1rem;
+  --space-2: 2rem;
+  --shadow: 0 6px 20px rgba(0,0,0,.2);
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --bg: #f8fafc;
+    --bg-elev: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --primary: #0284c7;
+    --card: #ffffff;
+    --border: #e2e8f0;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 0;
+}
+
+/* ================= Header ================= */
+.site-header{
+  position: sticky; top:0; z-index:10;
+  background:var(--bg-elev);
+  border-bottom:1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+.site-header .wrap{display:flex;align-items:center;gap:1rem;padding:.75rem 1rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.6rem;font-size:1.25rem;margin:0}
+.brand-icon{width:28px;height:28px;filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));}
+.search{display:flex;gap:.5rem;align-items:center;margin-left:auto;flex:1;max-width:520px;order:2}
+.search input{
+  flex:1;padding:.7rem .9rem;border-radius:.8rem;border:1px solid var(--border);background:var(--bg);
+  color:var(--text);
+}
+.hint{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+.toggles{display:flex;gap:.5rem;margin-left:.5rem;order:3}
+.btn{
+  border:1px solid var(--border);background:var(--primary);color:#fff;
+  padding:.7rem .95rem;border-radius:.8rem;cursor:pointer;box-shadow:var(--shadow);font-weight:600;
+}
+.btn-ghost{background:transparent;color:var(--text)}
+
+/* ================= Main ================= */
+.site-main .section{padding:2rem 0;border-bottom:1px dashed var(--border)} /* más espacio entre secciones */
+h2{margin:.5rem 0 1.5rem 0;font-size:1.25rem}
+
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:1rem;
+}
+
+/* WeatherCard principal ajustado */
+.card-current {
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+.card-current .card-header {
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap: 0.6rem;
+  align-items:center;
+}
+.card-current .weather-icon {
+  width: 40px;
+  height: 40px;
+}
+.card-current .location { font-size: 1rem; }
+.card-current .meta { color: var(--muted); margin:.1rem 0 0; }
+.card-current .temp {
+  font-size:2rem;
+  font-weight:800;
+  display:flex;
+  align-items:flex-start;
+  gap:.2rem;
+}
+.card-current .temp .unit { font-size:0.9rem; margin-top:0.2rem; color:var(--muted); }
+
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1rem}
+.kv div{display:flex;justify-content:space-between;gap:.5rem;border:1px solid var(--border);border-radius:.7rem;padding:.6rem .75rem;background:var(--bg)}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:600}
+.card-footer .desc{margin:.75rem 0 0;color:var(--muted)}
+
+.scroller{display:flex;gap:.5rem;overflow:auto;padding-bottom:.5rem}
+.chip{
+  min-width:90px;border:1px solid var(--border);background:var(--bg);color:var(--text);
+  border-radius:999px;padding:.5rem .75rem;display:flex;align-items:center;justify-content:space-between;gap:.5rem;cursor:pointer;
+}
+.chip-icon{width:20px;height:20px}
+
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.5rem;list-style:none;padding:0;margin:0}
+.day{display:flex;flex-direction:column;align-items:center;gap:.25rem;border:1px solid var(--border);border-radius:.8rem;padding:.6rem .4rem;background:var(--bg)}
+.day-icon{width:28px;height:28px}
+.day .max{font-weight:700}
+.day .min{color:var(--muted)}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.map-ph{height:200px;border:1px dashed var(--border);border-radius:.8rem;display:grid;place-items:center;color:var(--muted)}
+
+/* ================= Footer ================= */
+.site-footer{padding:2rem 0;color:var(--muted)}
+
+/* ================= Form Register ================= */
+.form-register {
+  width: 90%;                 
+  max-width: 400px;          
+  background: #5d6d7d;
+  padding: 2rem;              
+  border-radius: 8px;
+  color: #000000;
+  box-shadow: 7px 13px 37px #2704f0;
+  margin-bottom:2rem;
+}
+.form-register h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  color: #000000;
+}
+.controls {
+  width: 100%;
+  background: #749dc6;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem; /* más separación entre inputs */
+  border: 1px solid #000000;
+  font-size: 1rem;
+}
+.form-register p {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+.form-register a {
+  color: #5b046f;
+  text-decoration: underline;
+}
+.form-register a:hover {
+  color: #fb02ff;
+  text-decoration: underline;
+}
+.form-register .botons {
+  border: none;
+  width: 100%;
+  background: #006eec;
+  padding: 0.8rem;
+  color: #fff;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+.botons:hover { background-color: blueviolet; }
+.botons:active { background-color: rgb(17, 0, 255); }
+
+/* ================= Responsividad ================= */
+@media (max-width: 900px){
+  .kv{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .days{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grid-2{grid-template-columns:1fr}
+}
+@media (max-width: 600px){
+  .site-header .wrap{flex-wrap:wrap;gap:.75rem}
+  .search{order:2;min-width:100%}
+  .toggles{order:3;margin-left:0}
+  .days{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .card-current .temp{font-size:1.6rem}
+  .card-current .weather-icon{width:32px;height:32px}
+  .card-current .location{font-size:0.95rem}
+  .card-current .temp .unit{font-size:0.8rem}
+}
+@media (max-width: 480px) {
+  .form-register { padding: 1.2rem; }
+  .form-register h4 { font-size: 1.3rem; }
+  .controls, .form-register .botons { font-size: 0.95rem; padding: 0.7rem; }
+}
+
+/* ================= Accesibilidad y Animaciones ================= */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+a,button,input{font:inherit}
+button:focus-visible{outline:3px solid var(--primary)}
+.muted{color:var(--muted)}
+
+/* ================= Skeleton Loading ================= */
+.skeleton{display:grid;gap:1rem} /* más espacio entre bloques */
+.skeleton-block{background:var(--border);border-radius:.5rem;animation:pulse 1.5s ease-in-out infinite}
+.skeleton-block.h40{height:40px}
+.skeleton-block.h20{height:20px}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* ================= Error & Offline ================= */
+.error-card{border:2px solid var(--danger);background:rgba(239,68,68,.1);color:var(--danger);text-align:center;margin-bottom:1.5rem}
+.error-card h3{margin-top:0}
+.btn-retry{margin-top:.75rem}
+
+.offline-card{border:2px solid var(--warning);background:rgba(245,158,11,.1);color:var(--warning);text-align:center;margin-bottom:1.5rem}
+.offline-card h3{margin-top:0}
+
+.link-like {
+  background: none;
+  border: none;
+  color: #5b046f;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.link-like:hover {
+  color: #fb02ff;
+}
+
